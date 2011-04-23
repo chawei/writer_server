@@ -2,9 +2,9 @@
 <head>
 <link href="printer.css" rel="stylesheet" type = "text/css">
 <script src="socket.io.js"></script> 
+<script src="config.js"></script>
 <script> 
-  //var REMOTE_IP = "75.6.229.35";
-  var REMOTE_IP = "10.5.128.125";
+  if (REMOTE_IP == undefined) { alert('REMOTE_IP is undefined'); }
  	socket = new io.Socket(REMOTE_IP, {port:8000});
 	
 	socket.connect();
