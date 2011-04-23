@@ -1,0 +1,122 @@
+<html>
+<head>
+
+<link href="projector.css" rel="stylesheet" type = "text/css">
+<script src="socket.io.js"></script> 
+<script> 
+  //var REMOTE_IP = "75.6.229.35";
+  var REMOTE_IP = "10.5.128.125";
+ 	socket = new io.Socket(REMOTE_IP, {port:8000});
+	
+	socket.connect();
+	
+	socket.on('connect', function()
+	{
+		sendObject({projector:true});
+	});
+ 
+	socket.on('message', function(data)
+	{ 
+		// Lets parse the message, and then pass it to our handleServerMessage method for processing
+		data = parseObject(data);
+		if(data != null)handleServerMessage(data);
+	}); 
+ 
+	socket.on('disconnect', function()
+	{ 
+		
+	}); 
+		
+		
+	// ====================== General Client/JSON helper methods ========================
+	
+	// Method for sending an object as a json string to a client
+	var sendObject = function(object){ socket.send(JSON.stringify(object)); },
+	// Method for parsing JSON strings
+	parseObject = function(obj){ try{obj = JSON.parse(obj); return obj;} catch(SyntaxError){console.log("bad json.\n\nMessage:\n" + obj + '\n\nError:\n' + SyntaxError);return null;}},
+		
+	
+	
+	// ======================= Server Message callback method ===================
+	
+	handleServerMessage = function(obj)
+	{
+		for(i = 0; i < 3; i++)
+		{
+			var domBox = document.getElementById("writer" + (i+1) + "box");
+			
+			// Clear our domBox
+			if ( domBox.hasChildNodes() )
+			{
+			    while ( domBox.childNodes.length >= 1 )
+			    {
+			        domBox.removeChild( domBox.firstChild );       
+			    } 
+			}
+			
+			// Break our text up into sections
+			if(obj.writers[i].text.length > 0)
+			{
+				var startIndex = 0;
+				var currentNumber = obj.writers[i].highlight[0];
+				
+				var currentIndex = 0;
+				while(currentIndex < obj.writers[i].text.length)
+				{
+					if(currentIndex == obj.writers[i].text.length - 1)
+					{
+						//currentNumber = obj.writers[i].highlight[currentIndex];
+						createHighlightSpan(obj.writers[i].text, startIndex, currentIndex+1, currentNumber, domBox);
+					}
+					else if(obj.writers[i].highlight[currentIndex] != currentNumber)
+					{
+						createHighlightSpan(obj.writers[i].text, startIndex, currentIndex, currentNumber, domBox);
+						currentNumber = obj.writers[i].highlight[currentIndex];
+						startIndex = currentIndex;
+					}
+					currentIndex++;	
+				}
+			}
+			
+			if(domBox.offsetHeight > 800-48)
+			{
+				domBox.style.top = 24 - (domBox.offsetHeight - (800-48));
+			}
+			else
+			{
+				domBox.style.top = 24;
+			}
+		}
+	},
+	
+	createHighlightSpan = function(text, start, end, number, domBox)
+	{
+		var textBlock = text.slice(start,end);
+		var div = document.createElement('div');
+		div.appendChild(document.createTextNode(textBlock));
+		
+		switch(number)
+		{
+			case 0:
+				div.className = "normal-text";
+				break;
+				
+			case 1:
+				div.className = "context";
+				break;
+			
+			case 2:
+				div.className = "highlight";
+				break;
+		}
+		domBox.appendChild(div);
+	}
+</script>
+</head>
+<body>
+	<div id="screenContainer">
+		<div id="writer1box" class="writerBox"></div>
+		<div id="writer2box" class="writerBox"></div>
+		<div id="writer3box" class="writerBox"></div>
+	</div>
+</body>

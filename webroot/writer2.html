@@ -1,0 +1,19 @@
+<html>
+<head>
+
+<link href="writer.css" rel="stylesheet" type = "text/css">
+<script src="socket.io.js"></script> 
+<script> 
+	var writerNo = 1;
+</script>
+<script src="writer.js"></script>
+</head>
+<body onload="setup()">
+
+<form>
+	<textarea rows=5 cols=100 resize="none" id="writingBox"></textarea>
+</form>
+<div id="outputArea" class="clientBox">
+	
+</div>
+</body>

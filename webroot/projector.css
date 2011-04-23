@@ -1,0 +1,73 @@
+body
+{
+	background-color: #000;
+	/*overflow:hidden;*/
+}
+
+#screenContainer
+{
+	color:#FFF;
+	width:1095px;
+	height:800px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	background-color: #000;
+}
+
+.writerBox
+{
+	width:400px;
+	position:absolute;
+}
+
+#writer1box
+{
+	font-family:"VistaSlabAlt-Book";
+	left:32px;
+	top:24px;
+	font-size:16px;
+	letter-spacing: .06em;
+	line-height:1.3em;
+}
+
+#writer2box
+{
+	font-family:"Office-Regular";
+	left:485px;
+	top:25px;
+	letter-spacing: -.04em;
+	line-height:1.3em;
+
+}
+
+#writer3box
+{
+	font-family:"Vitesse-Book";
+	left:945px;
+	top:23px;
+	line-height:1.3em;
+
+}
+
+.normal-text
+{
+	font-size:14px;
+	line-height:1.5em;
+}
+
+.context
+{
+	font-size:16px;
+	text-transform: uppercase;
+	line-height: 1.4em;
+	padding-top: 7px;
+	padding-bottom: 7px;
+}
+
+.highlight
+{
+	font-size:39px;
+	text-transform: uppercase;
+	line-height: 1em;
+}

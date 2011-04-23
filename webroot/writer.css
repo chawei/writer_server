@@ -1,0 +1,50 @@
+*
+{
+	font-family:monospace;
+}
+
+span
+{
+	background:#CCC;
+}
+
+.clientBox
+{
+	float:left;
+	margin:30px;
+	width:97%;
+}
+
+.topicsBox
+{
+	margin:30px;
+}
+
+#writingBox
+{
+	margin:1%;
+	width:97%%;
+}
+
+#writer1box
+{
+	background:#AFF;
+	min-height:100px;
+	width:100%;
+}
+
+#writer2box
+{
+	background:#FAF;
+	min-height:100px;
+	width:100%;
+	
+}
+
+#writer3box
+{
+	background:#FFA;
+	min-height:100px;
+	width:100%;
+	
+}

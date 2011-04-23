@@ -1,0 +1,63 @@
+body
+{
+	background:#fff;
+	margin:0px;
+	
+	color:#000;
+		
+	font-family:monospace;
+	font-size:8px;
+}
+
+#screenContainer
+{
+	
+
+}
+
+.writerBox
+{
+	width:234px;
+	position:absolute;
+}
+
+#writer1box
+{
+	font-family:"VistaSlabAlt-Book", monospace;
+	left:32px;
+	top:24px;
+}
+
+#writer2box
+{
+	font-family:"Office-Regular", monospace;
+	left:294;
+	top:24px;
+}
+
+#writer3box
+{
+	font-family:"Vitesse-Book", monospace;
+	left:544px;
+	top:24px;
+}
+
+.normal-text
+{
+	font-size:12px;
+	line-height:1.25em;
+}
+
+.context
+{
+	font-size:16px;
+	text-transform: uppercase;
+	line-height: 1.4em;
+}
+
+.highlight
+{
+	font-size:39px;
+	text-transform: uppercase;
+	line-height: 1.125em;
+}
