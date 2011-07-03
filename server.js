@@ -43,7 +43,7 @@ var server = http.createServer(function(req, res){
 	      sys.puts('404');
 	    });
 });
-server.listen(8000); // Listen on port 8000
+server.listen(8080); // Listen on port 8000
 
 // Setup our websockets, socket.io
 var socket = io.listen(server); // Listen on our html server
