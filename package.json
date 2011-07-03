@@ -2,7 +2,7 @@
   "name": "nodewriter",
   "version": "1.0.0",
   "dependencies": {
-    "socket.io": "0.6.2",
+    "socket.io": "0.6.16",
     "request": "",
     "paperboy": ""
   }
