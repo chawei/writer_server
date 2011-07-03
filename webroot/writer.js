@@ -1,5 +1,6 @@
-if (REMOTE_IP == undefined) { alert('REMOTE_IP is undefined'); }
-socket = new io.Socket(REMOTE_IP, {port:8000});
+if (typeof(REMOTE_IP) == "undefined") { alert('REMOTE_IP is undefined'); }
+if (typeof(PORT) == "undefined") { alert('PORT is undefined'); }
+socket = new io.Socket(REMOTE_IP, {port: PORT});
 
 socket.connect();
 
